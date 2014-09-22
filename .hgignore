@@ -1,0 +1,9 @@
+syntax: glob
+*.fasta*
+*blast8
+*wublast
+*txt
+*log
+*.pna
+
+
