@@ -98,13 +98,20 @@ def filter_hits(infodict, remove_noninformative=True, print_fragment="", print_f
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Analyze genome percentages in blat mapping results")
-    parser.add_argument("mappings", metavar="BLAST8", help="Mappings file in BLAST8 format")
-    parser.add_argument("--id", metavar="I", dest="identity", default=100, type=int, help="Minimum identity of mapped fragments")
-    parser.add_argument("--matches", metavar="M", dest="matches", default=20, type=int, help="Minimum number of matches per fragment")
-    parser.add_argument("--mismatches", metavar="m", dest="mismatches", default=0, type=int, help="Maximum number of mismatches per fragment")
-    parser.add_argument("-r", dest="remove", default=True, action="store_false", help="Remove noninformative fragments")
-    parser.add_argument("-p", dest="print_fragments", default=False, action="store_true", help="Print names of filtered fragments")
-    parser.add_argument("--print", dest="print_fragment", default="", help="Print the hits of a single fragment identifier.")
+    parser.add_argument("mappings", metavar="BLAST8", 
+            help="Mappings file in BLAST8 format")
+    parser.add_argument("--id", metavar="I", dest="identity", default=100, type=int, 
+            help="Minimum identity of mapped fragments [%(default)s]")
+    parser.add_argument("--matches", metavar="M", dest="matches", default=20, type=int, 
+            help="Minimum number of matches per fragment [%(default)s]")
+    parser.add_argument("--mismatches", metavar="m", dest="mismatches", default=0, type=int, 
+            help="Maximum number of mismatches per fragment [%(default)s]")
+    parser.add_argument("-r", dest="remove", default=True, action="store_false", 
+            help="Remove noninformative fragments [%(default)s]")
+    parser.add_argument("-p", dest="print_fragments", default=False, action="store_true", 
+            help="Print names of filtered fragments [%(default)s]")
+    parser.add_argument("--print", dest="print_fragment", default="", 
+            help="Print the hits of a single fragment identifier.")
     args = parser.parse_args()
 
     if len(argv) < 2:
